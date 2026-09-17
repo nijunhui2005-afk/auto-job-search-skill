@@ -1,0 +1,57 @@
+{
+  "_README": "FILL_ME 占位符说明：这是模板。把下面所有含 FILL_ME 的值改成你自己的求职条件（改完这些 FILL_ME 就不存在了）。没填完之前 search/score/send 会拒绝运行并列出还没填的字段 —— 这是故意的，避免拿着别人的条件去搜岗位。",
+  "_howto": [
+    "1) 最少要填：keywords（搜什么岗位）、cities + cityCode + dqCode（在哪）、workYearCode（实习还是校招）",
+    "2) 直接改这个文件，或让 agent 改（缺什么跑 `node src/cli.mjs setup` 看该问用户什么）",
+    "3) 改完 keywords 或 cities 后必须重跑 node src/cli.mjs rubric（打分口径要跟着岗位走）",
+    "4) dqCode 是地域过滤的真正开关。城市码查 src/sites/liepin/index.mjs 的 cityCodes；注意 410 是全国码，会覆盖城市，不能用于地域过滤"
+  ],
+
+  "_keywords_note": "站内检索用的关键词，会逐个搜索后按 jobId 合并去重。写岗位真实叫法，别写太长的句子。",
+  "keywords": ["FILL_ME_岗位关键词1", "FILL_ME_岗位关键词2"],
+  "searchPages": 2,
+  "_searchPages_note": "每个关键词翻几页（每页约 40 条）。",
+
+  "cities": ["FILL_ME_城市名"],
+  "cityCode": "FILL_ME",
+  "dqCode": "FILL_ME",
+  "districtDqCode": null,
+  "_districtDqCode_note": "若解析到区级 dq 码，填这里以收窄范围；null 表示只用城市级。",
+  "locationKeywords": ["FILL_ME_片区或区名"],
+  "locationTopPreference": "FILL_ME_最想去的那个",
+
+  "salaryMinK": null,
+  "salaryMaxK": null,
+  "experienceYears": null,
+  "workYearCode": "FILL_ME_1是应届生_2是实习",
+  "_experience_note": "招聘站 workYearCode：1=应届生，2=实习生，0$1=1年以内。找实习必须用 2。",
+  "jobTypes": [],
+  "degree": "不限",
+  "industries": [],
+  "companySizes": [],
+
+  "excludeKeywords": [],
+  "excludeCompanies": [],
+  "_excludeKeywords_note": "命中就丢，不送 AI 打分。常见的：外包、驻场、人力派遣、猎头、销售、地推、社招。",
+
+  "mustHave": [],
+  "_mustHave_note": "硬性门槛，不满足直接丢，不送 AI 打分。留空表示不设硬门槛。",
+  "niceToHave": [],
+  "_niceToHave_note": "加分项。注意：真正的评分口径由 config/rubric.json（AI 生成）决定，这里只是给 AI 的提示。",
+
+  "extra": "FILL_ME：用几句话写清你的偏好与约束，AI 打分和生成打招呼语都会读它。例如：在校生找实习、优先有转正机会、通勤时间要求、不希望去的团队类型。",
+
+  "searchForm": {
+    "pubTime": "",
+    "eduLevel": "",
+    "salaryCode": "",
+    "compScale": "",
+    "compKind": "",
+    "compStage": "",
+    "industry": "",
+    "jobKind": "",
+    "yearSalary": "",
+    "compTag": ""
+  },
+  "_searchForm_note": "搜索结果筛选器。全部留空=不限。取值见 config/search-options.json（由 cond-init 探测生成）。"
+}

@@ -1,0 +1,11 @@
+{
+  "_note": "AI 提示词覆盖。留空 = 用程序内置的通用默认值（见 src/core/ai.mjs 的 SCORE_SYSTEM / GREET_SYSTEM）。本文件是分发模板，请保持留空。",
+  "_scoreSystem_note": "打分口径。留空时：优先用 config/rubric.json（agent 按目标岗位生成），没有 rubric 才退回内置通用口径。只有填了值这里才会盖过 rubric —— 那是给自己个人口径用的，分发时要留空。",
+  "scoreSystem": "",
+  "_scoreUserExtra_note": "追加到打分 user 消息末尾的补充口径，优先级高于内置标准。",
+  "scoreUserExtra": "",
+  "_greetSystem_note": "打招呼语写作口径。留空 = 内置通用写作口径。注意：lintGreeting 仍会强制拦截问句/描述对方/套话，改这里不能绕过 lint。",
+  "greetSystem": "",
+  "_greetUserExtra_note": "追加到打招呼语 user 消息末尾的补充口径。",
+  "greetUserExtra": ""
+}

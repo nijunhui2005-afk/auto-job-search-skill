@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>{{name}} — 简历</title>
+<style>
+  /* A4 + 打印友好。这份 PDF 会作为附件直接给 HR 看，必须一页内、无颜色块依赖。 */
+  @page { size: A4; margin: 13mm 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: #1f2329; font-size: 10.5pt; line-height: 1.5; margin: 0;
+  }
+  .head {
+    display: flex; gap: 12px; align-items: flex-start;
+    border-bottom: 2px solid #1f2329; padding-bottom: 7px; margin-bottom: 10px;
+  }
+  .head-main { flex: 1; min-width: 0; }
+  /* 小二寸证件照比例 0.778（35x45mm），25mm 宽对应 32.1mm 高 */
+  .photo img {
+    width: 25mm; height: 32mm; object-fit: cover;
+    border: 1px solid #d5dae0; display: block;
+  }
+  .name { font-size: 19pt; font-weight: 700; letter-spacing: 1px; }
+  .meta { margin-top: 4px; color: #4a5058; font-size: 9.5pt; }
+  .meta span { margin-right: 13px; white-space: nowrap; display: inline-block; }
+  .target {
+    margin-top: 7px; background: #f4f6f8; border-left: 3px solid #1f2329;
+    padding: 5px 10px; font-size: 10pt;
+  }
+  h2 {
+    font-size: 11.5pt; margin: 11px 0 5px; padding-bottom: 3px;
+    border-bottom: 1px solid #d5dae0; letter-spacing: .5px;
+  }
+  .item { margin-bottom: 8px; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .item-title { font-weight: 700; }
+  .item-sub { color: #4a5058; font-size: 9.5pt; }
+  .item-time { color: #6b7280; font-size: 9pt; white-space: nowrap; margin-left: 10px; }
+  ul { margin: 3px 0 0; padding-left: 16px; }
+  li { margin-bottom: 1.5px; }
+  .skills { margin: 0; padding-left: 16px; }
+  .footer { margin-top: 12px; color: #8a9199; font-size: 8pt; text-align: right; }
+  /* 屏幕渲染（转图片用）时补上页边距：@page 只对打印生效 */
+  @media screen { body { padding: 13mm 15mm; } }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div class="head-main">
+    <div class="name">{{name}}</div>
+    <div class="meta">{{basicMeta}}</div>
+    <div class="target">
+      <b>求职意向：</b>{{targetTitle}}<span style="color:#6b7280">｜期望地点：{{expectCity}}</span>{{#expectSalary}}<span style="color:#6b7280">｜期望薪资：{{expectSalary}}</span>{{/expectSalary}}
+    </div>
+  </div>
+  {{#hasPhoto}}
+  <div class="photo"><img src="{{photoUrl}}" alt=""></div>
+  {{/hasPhoto}}
+</div>
+
+<h2>教育经历</h2>
+{{eduList}}
+
+{{#hasProjects}}
+<h2>项目经历</h2>
+{{projectList}}
+{{/hasProjects}}
+
+{{#hasWork}}
+<h2>实习与工作经历</h2>
+{{workList}}
+{{/hasWork}}
+
+<h2>技能与证书</h2>
+<ul class="skills">
+{{skillList}}
+</ul>
+
+<div class="footer">{{name}} · {{generatedAt}}</div>
+
+</body>
+</html>

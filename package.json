@@ -1,0 +1,20 @@
+{
+  "name": "job-auto-apply",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "通用求职站自动投递框架（AI 打分 + AI 打招呼 + 限速发送 + 简历投递）。猎聘为第一个站点适配器。无前端，供 agent 直接调用。",
+  "engines": { "node": ">=18" },
+  "comment": "零 npm 依赖，只用 Node 内置模块。只有可选的 recon 探针需要 playwright-core。",
+  "scripts": {
+    "doctor": "node src/cli.mjs doctor",
+    "setup": "node src/cli.mjs setup",
+    "search": "node src/cli.mjs search",
+    "rubric": "node src/cli.mjs rubric",
+    "score": "node src/cli.mjs score",
+    "detail": "node src/cli.mjs detail",
+    "resume-pdf": "node src/cli.mjs resume-pdf",
+    "send": "node src/cli.mjs send",
+    "locate": "node src/cli.mjs send --locate"
+  }
+}

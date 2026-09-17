@@ -1,0 +1,12 @@
+{
+  "_comment": "限速硬门。ratelimit.mjs 会拒绝任何越界行为，不提供命令行绕过开关。",
+  "_decided": "2026-09-14 操作者选定：日 10 条 / 120-300s；2026-09-17 按业主决定删除时间窗与熔断",
+  "dailyCap": 10,
+  "minDelayMs": 10000,
+  "maxDelayMs": 30000,
+  "_threshold_comment": "AI 匹配度低于此分数的职位不生成打招呼语、不发送。0-100。",
+  "_threshold_note": "实测：JD 感知打分下，零 AI 经验的在校生投 Agent 实习岗最高仅 65 分。70 过严导致零输出，故下调到 60，让真正可投的岗位能进入流程。",
+  "matchThreshold": 60,
+  "_budget_comment": "单次 run 最多新处理多少个职位（防止一次跑太久）",
+  "maxJobsPerRun": 30
+}

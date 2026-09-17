@@ -1,0 +1,31 @@
+﻿# ---- 绝不入库：凭据与运行时产物 ----
+.env
+.chrome-debug/
+node_modules/
+
+# ---- 浏览器整包（~425MB，随文件夹分发，不入库）----
+browser/
+
+# ---- 便携 Node 运行时（~87MB，随文件夹分发，不入库）----
+node/
+
+# ---- 抓取/发送产物：含真实公司与人名 ----
+artifacts/
+state/
+*.log
+
+# ---- 明确的凭据 / 私人数据 ----
+cookies*.json
+*.token
+config/criteria.json
+config/experience.json
+config/profile.md
+config/profile.generated.md
+config/rubric.json
+config/ui.json
+config/site.json
+config/*.bak-*
+
+# ---- 迁移期一次性脚本 ----
+_migrate-*.mjs
+_fix-*.mjs

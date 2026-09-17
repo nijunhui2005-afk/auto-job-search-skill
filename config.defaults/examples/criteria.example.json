@@ -1,0 +1,56 @@
+{
+  "_comment": "求职筛选条件。keywords 用于站内检索，dqCode 决定地域过滤，locationKeywords 做二次锁定，其余作为 AI 匹配度打分依据。",
+  "_operator": "临港 · Agent 开发实习生",
+  "keywords": [
+    "<你的目标岗位，一行一个>"
+  ],
+  "_searchPages_note": "每个关键词翻几页（每页 40 条）。面板可改；关键词会逐个搜索后合并去重。",
+  "searchPages": 2,
+  "_location_note": "临港新片区属上海浦东新区。上海 dq=020；410 是全国码，会覆盖 city，绝不能用于地域过滤。",
+  "cities": [
+    "<城市>"
+  ],
+  "cityCode": "<城市码，如上海 020>",
+  "dqCode": "<同城市码>",
+  "_districtDqCode_note": "若解析到浦东/临港的区级 dq 码，填这里以收窄范围；null 表示只用城市级。",
+  "districtDqCode": null,
+  "_locationKeywords_note": "临港 ⊂ 浦东新区。两者都列上以便命中统计；AI 打分时临港权重更高。",
+  "locationKeywords": [],
+  "locationTopPreference": "",
+  "salaryMinK": null,
+  "salaryMaxK": null,
+  "_experience_note": "猎聘 workYearCode: 1=应届生, 2=实习生, 0$1=1年以内。找实习必须用 2。",
+  "experienceYears": null,
+  "workYearCode": "2",
+  "jobTypes": [
+    "实习"
+  ],
+  "degree": "不限",
+  "industries": [],
+  "companySizes": [],
+  "excludeKeywords": [
+    "外包",
+    "驻场",
+    "人力派遣",
+    "猎头"
+  ],
+  "excludeCompanies": [],
+  "_mustHave_note": "硬性门槛，不满足直接丢，不送 AI 打分。留空表示不设硬门槛。",
+  "mustHave": [],
+  "niceToHave": [],
+  "extra": "<补充说明：你的偏好、加分项>",
+  "searchForm": {
+    "pubTime": "",
+    "eduLevel": "",
+    "salaryCode": "",
+    "compScale": "",
+    "compKind": "",
+    "compStage": "",
+    "industry": "",
+    "jobKind": "",
+    "yearSalary": "",
+    "compTag": ""
+  },
+  "_searchForm_note": "搜索结果筛选器。全部留空=不限。取值见 config/search-options.json（由 cond-init 探测生成）。经 jobId 集合对比验证均真实生效。",
+  "_note": "示例配置。拷到 <HOME>/config/criteria.json 后改成你自己的。"
+}
